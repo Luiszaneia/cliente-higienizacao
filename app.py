@@ -75,7 +75,7 @@ TIPOS_MANCHAS = [
 
 CIDADES_ATENDIDAS = [
     "Luiz Antônio - SP",
-    "Cravinhos - SP",
+    "Guatapará - SP",
     "Santa Rita do Passa Quatro - SP",
     "São Simão - SP",
     "Ribeirão Preto - SP",
@@ -105,7 +105,6 @@ st.markdown("""
         width: 90%;
         height: auto;
     }
-    /* Caixa de destaque interativa para os passos */
     .step-box {
         background-color: #F0F6FC;
         border: 1px solid #165B99;
@@ -113,12 +112,10 @@ st.markdown("""
         padding: 16px;
         margin-bottom: 20px;
     }
-    /* Estilização dos seletores e inputs para dar foco visual */
     .stSelectbox label, .stNumberInput label, .stRadio label {
         color: #0F4373 !important;
         font-weight: 600 !important;
     }
-    /* Botões principais */
     div.stButton > button[kind="primary"], a[kind="primary"] {
         background-color: #165B99 !important;
         border-color: #165B99 !important;
@@ -261,4 +258,18 @@ if st.session_state.carrinho_cliente:
     st.info("💡 **Dica:** Ao clicar no botão acima, o WhatsApp abrirá com o texto pronto. **Basta anexar a foto do estofado na conversa** para agilizarmos a confirmação!")
 
     if st.button("🧹 Limpar Tudo / Nova Simulação", use_container_width=True):
-        st.session_state.carrinho_cliente =
+        st.session_state.carrinho_cliente = []
+        st.rerun()
+    
+    st.markdown('</div>', unsafe_allow_html=True)
+
+else:
+    st.markdown("---")
+    st.caption("👆 Selecione as opções acima e clique em **Adicionar Item à Simulação** para começar.")
+
+# --- RODAPÉ DISCRETO ---
+st.markdown("---")
+st.markdown(
+    "<p style='text-align: center; color: gray; font-size: 0.8rem;'>© 2026 LR Higienização • Todos os direitos reservados</p>", 
+    unsafe_allow_html=True
+)
