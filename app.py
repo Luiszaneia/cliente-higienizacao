@@ -234,3 +234,10 @@ if st.session_state.carrinho_cliente:
 else:
     st.markdown("---")
     st.caption("👆 Selecione as opções acima e clique em **Adicionar Item à Simulação** para começar.")
+    
+# --- RODAPÉ DISCRETO ---
+st.markdown("---")
+st.markdown(
+    "<p style='text-align: center; color: gray; font-size: 0.8rem;'>© 2026 LR Higienização • Todos os direitos reservados</p>", 
+    unsafe_allow_html=True
+)
