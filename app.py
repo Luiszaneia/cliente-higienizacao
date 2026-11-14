@@ -197,6 +197,20 @@ if st.session_state.carrinho_cliente:
     # PASSO 3: LOCALIZAÇÃO E ENVIO NO WHATSAPP
     # ==========================================
     st.subheader("3. Local do Atendimento")
+
+    st.markdown('<div class="step-box">', unsafe_allow_html=True)
+    st.subheader("3. Seus Dados e Local")
+    
+    nome_cliente = st.text_input("Seu Nome:", placeholder="Digite seu nome aqui...")
+    cidade = st.selectbox("Selecione sua Cidade:", CIDADES_ATENDIDAS)
+
+    lista_itens_msg = ""
+    for item in st.session_state.carrinho_cliente:
+        lista_itens_msg += f"▪ {item['qtd']}x {item['peca']}\n  - Tecido: {item['tecido']} | Mancha: {item['mancha']} | Já lavado antes: {item['historico']}\n  - Subtotal: R$ {item['subtotal']:.2f}\n\n"
+
+    saudacao_nome = f"Meu nome é *{nome_cliente}*." if nome_cliente.strip() else "Olá!"
+
+    mensagem_pronta = f"""{saudacao_nome} Fiz uma simulação no site da *LR Higienização*:
     
     cidade = st.selectbox("Selecione sua Cidade:", CIDADES_ATENDIDAS)
 
