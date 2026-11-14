@@ -3,7 +3,7 @@ import base64
 import urllib.parse
 import streamlit as st
 
-# Configuração da página otimizada, em português e com menu limpo
+# Configuração da página limpa e otimizada
 st.set_page_config(
     page_title="LR Higienização - Simulador de Orçamento",
     page_icon="💧",
@@ -14,17 +14,6 @@ st.set_page_config(
         'Report a bug': None,
         'About': "LR Higienização - Simulador de Orçamento Profissional"
     }
-)
-
-# Força o navegador a identificar o idioma como Português do Brasil (evita pedido de tradução)
-st.markdown(
-    """
-    <script>
-        var doc = window.parent.document;
-        doc.documentElement.lang = 'pt-BR';
-    </script>
-    """,
-    unsafe_allow_html=True
 )
 
 # ==========================================
@@ -98,11 +87,11 @@ st.markdown("""
     <style>
     .logo-container {
         text-align: center;
-        padding: 5px 0 10px 0;
+        padding: 0px 0 5px 0;
     }
     .logo-container img {
-        max-width: 340px;
-        width: 90%;
+        max-width: 320px;
+        width: 85%;
         height: auto;
     }
     .step-box {
@@ -132,7 +121,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ==========================================
-# CABEÇALHO (Logo + Subtítulo direto sem caixas)
+# CABEÇALHO (Logo e Subtítulo limpos)
 # ==========================================
 logo_b64 = carregar_imagem_base64(ARQUIVO_LOGO)
 
@@ -145,9 +134,7 @@ if logo_b64:
 else:
     st.title("🛋️ LR Higienização")
 
-st.markdown("<p style='text-align: center; color: #555; font-size: 0.95rem; margin-bottom: 20px;'>✨ <b>Atendimento profissional a domicílio</b> com extração profunda e produtos bactericidas seguros para sua família e pets.</p>", unsafe_allow_html=True)
-
-st.markdown("---")
+st.markdown("<p style='text-align: center; color: #444; font-size: 0.95rem; margin-bottom: 25px;'>✨ <b>Atendimento profissional a domicílio</b> com extração profunda e produtos bactericidas seguros para sua família e pets.</p>", unsafe_allow_html=True)
 
 # ==========================================
 # PASSO 1: DETALHES DA PEÇA
