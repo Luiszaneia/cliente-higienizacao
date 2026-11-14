@@ -3,23 +3,18 @@ import base64
 import urllib.parse
 import streamlit as st
 
-# Configuração da página limpa e otimizada
+# Configuração da página otimizada para celular
 st.set_page_config(
     page_title="LR Higienização - Simulador de Orçamento",
     page_icon="💧",
     layout="centered",
-    initial_sidebar_state="collapsed",
-    menu_items={
-        'Get Help': None,
-        'Report a bug': None,
-        'About': "LR Higienização - Simulador de Orçamento Profissional"
-    }
+    initial_sidebar_state="collapsed"
 )
 
 # ==========================================
 # CONFIGURAÇÕES DA EMPRESA
 # ==========================================
-WHATSAPP_EMPRESA = "5516992218198"  # Número oficial da logo
+WHATSAPP_EMPRESA = "5516992218198"  # Número atualizado conforme a logo
 ARQUIVO_LOGO = "logo_lr.png"        # Arquivo PNG com fundo branco
 
 TABELA_SERVICOS = {
@@ -62,6 +57,7 @@ TIPOS_MANCHAS = [
     "Mofo / Umidade"
 ]
 
+# EDITE AQUI AS CIDADES QUE VOCÊ ATENDE:
 CIDADES_ATENDIDAS = [
     "Luiz Antônio - SP",
     "Guatapará - SP",
@@ -81,29 +77,18 @@ def carregar_imagem_base64(caminho):
     return None
 
 # ==========================================
-# ESTILIZAÇÃO MODERNA E DESTAQUE VISUAL
+# ESTILIZAÇÃO MODERNA (FUNDO BRANCO E LIMPO)
 # ==========================================
 st.markdown("""
     <style>
     .logo-container {
         text-align: center;
-        padding: 0px 0 5px 0;
+        padding: 10px 0 15px 0;
     }
     .logo-container img {
-        max-width: 320px;
-        width: 85%;
+        max-width: 340px;
+        width: 90%;
         height: auto;
-    }
-    .step-box {
-        background-color: #F0F6FC;
-        border: 1px solid #165B99;
-        border-radius: 12px;
-        padding: 16px;
-        margin-bottom: 20px;
-    }
-    .stSelectbox label, .stNumberInput label, .stRadio label {
-        color: #0F4373 !important;
-        font-weight: 600 !important;
     }
     div.stButton > button[kind="primary"], a[kind="primary"] {
         background-color: #165B99 !important;
@@ -121,7 +106,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ==========================================
-# CABEÇALHO (Logo e Subtítulo limpos)
+# CABEÇALHO COM A LOGO EM PNG (FUNDO BRANCO)
 # ==========================================
 logo_b64 = carregar_imagem_base64(ARQUIVO_LOGO)
 
@@ -134,13 +119,14 @@ if logo_b64:
 else:
     st.title("🛋️ LR Higienização")
 
-st.markdown("<p style='text-align: center; color: #444; font-size: 0.95rem; margin-bottom: 25px;'>✨ <b>Atendimento profissional a domicílio</b> com extração profunda e produtos bactericidas seguros para sua família e pets.</p>", unsafe_allow_html=True)
+st.info("✨ **Atendimento profissional a domicílio** com extração profunda e produtos bactericidas seguros para sua família e pets.")
+
+st.markdown("---")
 
 # ==========================================
 # PASSO 1: DETALHES DA PEÇA
 # ==========================================
-st.markdown('<div class="step-box">', unsafe_allow_html=True)
-st.subheader("1. Selecione os Detalhes da Peça")
+st.subheader("1. Detalhes da Peça")
 
 item_escolhido = st.selectbox("Escolha a peça:", list(TABELA_SERVICOS.keys()))
 
@@ -164,7 +150,7 @@ valor_unitario = valor_base * fator
 subtotal = valor_unitario * qtd
 
 st.markdown("")
-st.markdown(f"💡 Valor estimado para este item: **R$ {subtotal:.2f}** *(R$ {valor_unitario:.2f} cada)*")
+st.caption(f"Valor estimado para este item: **R$ {subtotal:.2f}** *(R$ {valor_unitario:.2f} cada)*")
 
 if st.button("➕ Adicionar Item à Simulação", use_container_width=True, type="primary"):
     st.session_state.carrinho_cliente.append({
@@ -176,9 +162,7 @@ if st.button("➕ Adicionar Item à Simulação", use_container_width=True, type
         "historico": historico_limpeza,
         "subtotal": subtotal
     })
-    st.success(f"{qtd}x {item_escolhido} adicionado com sucesso!")
-
-st.markdown('</div>', unsafe_allow_html=True)
+    st.success(f"{qtd}x {item_escolhido} adicionado!")
 
 # ==========================================
 # PASSO 2: RESUMO DA SIMULAÇÃO
@@ -212,7 +196,6 @@ if st.session_state.carrinho_cliente:
     # ==========================================
     # PASSO 3: LOCALIZAÇÃO E ENVIO NO WHATSAPP
     # ==========================================
-    st.markdown('<div class="step-box">', unsafe_allow_html=True)
     st.subheader("3. Local do Atendimento")
     
     cidade = st.selectbox("Selecione sua Cidade:", CIDADES_ATENDIDAS)
@@ -247,14 +230,12 @@ if st.session_state.carrinho_cliente:
     if st.button("🧹 Limpar Tudo / Nova Simulação", use_container_width=True):
         st.session_state.carrinho_cliente = []
         st.rerun()
-    
-    st.markdown('</div>', unsafe_allow_html=True)
 
 else:
     st.markdown("---")
     st.caption("👆 Selecione as opções acima e clique em **Adicionar Item à Simulação** para começar.")
 
-# --- RODAPÉ DISCRETO ---
+    # --- RODAPÉ DISCRETO ---
 st.markdown("---")
 st.markdown(
     "<p style='text-align: center; color: gray; font-size: 0.8rem;'>© 2026 LR Higienização • Todos os direitos reservados</p>", 
