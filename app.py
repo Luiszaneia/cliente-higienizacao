@@ -57,6 +57,16 @@ TIPOS_MANCHAS = [
     "Mofo / Umidade"
 ]
 
+# EDITE AQUI AS CIDADES QUE VOCÊ ATENDE:
+CIDADES_ATENDIDAS = [
+    "Luiz Antônio - SP",
+    "Guatapará - SP",
+    "Santa Rita do Passa Quatro - SP",
+    "São Simão - SP",
+    "Ribeirão Preto - SP",
+    "Outra cidade da região"
+]
+
 if "carrinho_cliente" not in st.session_state:
     st.session_state.carrinho_cliente = []
 
@@ -184,12 +194,11 @@ if st.session_state.carrinho_cliente:
     st.markdown("---")
 
     # ==========================================
-    # PASSO 3: DADOS E ENVIO NO WHATSAPP
+    # PASSO 3: LOCALIZAÇÃO E ENVIO NO WHATSAPP
     # ==========================================
-    st.subheader("3. Seus Dados para Contato")
+    st.subheader("3. Local do Atendimento")
     
-    nome = st.text_input("Seu Nome:", placeholder="Como podemos te chamar?")
-    bairro = st.text_input("Seu Bairro / Cidade:", placeholder="Ex: Centro - Luiz Antônio")
+    cidade = st.selectbox("Selecione sua Cidade:", CIDADES_ATENDIDAS)
 
     lista_itens_msg = ""
     for item in st.session_state.carrinho_cliente:
@@ -197,8 +206,7 @@ if st.session_state.carrinho_cliente:
 
     mensagem_pronta = f"""Olá! Fiz uma simulação no site da *LR Higienização*:
 
-*Cliente:* {nome if nome else 'Not informado'}
-*Bairro/Cidade:* {bairro if bairro else 'Não informado'}
+*Cidade:* {cidade}
 
 *ITENS SELECIONADOS:*
 {lista_itens_msg}*VALOR ESTIMADO:* R$ {valor_total_estimado:.2f}
