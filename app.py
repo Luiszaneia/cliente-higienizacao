@@ -31,7 +31,7 @@ TABELA_SERVICOS = {
 }
 
 NIVEL_SUJIDADE = {
-    "🟢 Manutenção / Uso Normal (poeira e suor do dia a dia)": 1.10,
+    "🟢 Manutenção / Uso Normal (poeira e suor do dia a dia)": 1.00,
     "🟡 Sujidade Moderada (manchas leves de líquidos ou alimentos)": 1.20,
     "🔴 Sujidade Pesada (manchas antigas, mofo, odor ou urina pet)": 1.40,
 }
@@ -60,7 +60,7 @@ TIPOS_MANCHAS = [
 # EDITE AQUI AS CIDADES QUE VOCÊ ATENDE:
 CIDADES_ATENDIDAS = [
     "Luiz Antônio - SP",
-    "Guatapará - SP",
+    "Cravinhos - SP",
     "Santa Rita do Passa Quatro - SP",
     "São Simão - SP",
     "Ribeirão Preto - SP",
