@@ -237,19 +237,22 @@ if st.session_state.carrinho_cliente:
     
     st.markdown('</div>', unsafe_allow_html=True)
 
-    # --- RODAPÉ DISCRETO ---
-st.markdown("---")
-st.markdown(
-    "<p style='text-align: center; color: gray; font-size: 0.8rem;'>© 2026 LR Higienização • Todos os direitos reservados</p>", 
-    unsafe_allow_html=True
-)
-# --- RODAPÉ DISCRETO COM INSTAGRAM ---
+# --- RODAPÉ DISCRETO COM ÍCONE DO INSTAGRAM ---
 LINK_INSTAGRAM = "https://www.instagram.com/l.rhigienizacao/"  # Altere para o seu link se necessário
 
 st.markdown("---")
 st.markdown(f"""
     <div style="text-align: center; margin-top: 15px; color: gray; font-size: 0.8rem;">
-        <p>📸 Siga-nos no Instagram: <a href="{LINK_INSTAGRAM}" target="_blank" style="color: #165B99; text-decoration: none; font-weight: 600;">@lrhigienizacao</a></p>
+        <p style="margin-bottom: 5px;">
+            <a href="{LINK_INSTAGRAM}" target="_blank" style="color: #165B99; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                Siga-nos no Instagram: @lrhigienizacao
+            </a>
+        </p>
         <p>© 2026 LR Higienização • Todos os direitos reservados</p>
     </div>
 """, unsafe_allow_html=True)
