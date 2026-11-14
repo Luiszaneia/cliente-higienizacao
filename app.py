@@ -193,11 +193,9 @@ if st.session_state.carrinho_cliente:
 
     st.markdown("---")
 
+   # ==========================================
+    # PASSO 3: DADOS DO CLIENTE E ENVIO NO WHATSAPP
     # ==========================================
-    # PASSO 3: LOCALIZAÇÃO E ENVIO NO WHATSAPP
-    # ==========================================
-    st.subheader("3. Local do Atendimento")
-
     st.markdown('<div class="step-box">', unsafe_allow_html=True)
     st.subheader("3. Seus Dados e Local")
     
@@ -211,14 +209,6 @@ if st.session_state.carrinho_cliente:
     saudacao_nome = f"Meu nome é *{nome_cliente}*." if nome_cliente.strip() else "Olá!"
 
     mensagem_pronta = f"""{saudacao_nome} Fiz uma simulação no site da *LR Higienização*:
-    
-    cidade = st.selectbox("Selecione sua Cidade:", CIDADES_ATENDIDAS)
-
-    lista_itens_msg = ""
-    for item in st.session_state.carrinho_cliente:
-        lista_itens_msg += f"▪ {item['qtd']}x {item['peca']}\n  - Tecido: {item['tecido']} | Mancha: {item['mancha']} | Já lavado antes: {item['historico']}\n  - Subtotal: R$ {item['subtotal']:.2f}\n\n"
-
-    mensagem_pronta = f"""Olá! Fiz uma simulação no site da *LR Higienização*:
 
 *Cidade:* {cidade}
 
@@ -244,10 +234,8 @@ if st.session_state.carrinho_cliente:
     if st.button("🧹 Limpar Tudo / Nova Simulação", use_container_width=True):
         st.session_state.carrinho_cliente = []
         st.rerun()
-
-else:
-    st.markdown("---")
-    st.caption("👆 Selecione as opções acima e clique em **Adicionar Item à Simulação** para começar.")
+    
+    st.markdown('</div>', unsafe_allow_html=True)
 
     # --- RODAPÉ DISCRETO ---
 st.markdown("---")
