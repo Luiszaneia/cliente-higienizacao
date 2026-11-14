@@ -98,7 +98,7 @@ st.markdown("""
     <style>
     .logo-container {
         text-align: center;
-        padding: 10px 0 15px 0;
+        padding: 5px 0 10px 0;
     }
     .logo-container img {
         max-width: 340px;
@@ -132,7 +132,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ==========================================
-# CABEÇALHO COM A LOGO EM PNG
+# CABEÇALHO (Logo + Subtítulo direto sem caixas)
 # ==========================================
 logo_b64 = carregar_imagem_base64(ARQUIVO_LOGO)
 
@@ -145,7 +145,7 @@ if logo_b64:
 else:
     st.title("🛋️ LR Higienização")
 
-st.info("✨ **Atendimento profissional a domicílio** com extração profunda e produtos bactericidas seguros para sua família e pets.")
+st.markdown("<p style='text-align: center; color: #555; font-size: 0.95rem; margin-bottom: 20px;'>✨ <b>Atendimento profissional a domicílio</b> com extração profunda e produtos bactericidas seguros para sua família e pets.</p>", unsafe_allow_html=True)
 
 st.markdown("---")
 
@@ -223,7 +223,7 @@ if st.session_state.carrinho_cliente:
     st.markdown("---")
 
     # ==========================================
-    # PASSO 3: LOCALIZAÇÃO E ENVIO NO WHATSAPP (Envolvido corretamente na caixa)
+    # PASSO 3: LOCALIZAÇÃO E ENVIO NO WHATSAPP
     # ==========================================
     st.markdown('<div class="step-box">', unsafe_allow_html=True)
     st.subheader("3. Local do Atendimento")
