@@ -223,7 +223,7 @@ if st.session_state.carrinho_cliente:
     st.markdown("---")
 
     # ==========================================
-    # PASSO 3: LOCALIZAÇÃO E ENVIO NO WHATSAPP
+    # PASSO 3: LOCALIZAÇÃO E ENVIO NO WHATSAPP (Envolvido corretamente na caixa)
     # ==========================================
     st.markdown('<div class="step-box">', unsafe_allow_html=True)
     st.subheader("3. Local do Atendimento")
