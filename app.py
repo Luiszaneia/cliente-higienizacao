@@ -192,7 +192,17 @@ if st.session_state.carrinho_cliente:
     st.warning("⚠️ **Atenção:** Este valor é uma **estimativa inicial** baseada nas informações fornecidas. O orçamento exato e definitivo será confirmado após o envio das fotos do estofado no WhatsApp.")
 
     st.markdown("---")
-
+# ==========================================
+    # FORMAS DE PAGAMENTO ACEITAS (LOCAL ESTRATÉGICO)
+    # ==========================================
+    st.markdown("""
+        <div style="background-color: #F8FAFC; border: 1px solid #CBD5E1; border-radius: 10px; padding: 12px; text-align: center; margin-bottom: 20px;">
+            <p style="margin: 0 0 8px 0; color: #0F4373; font-weight: 600; font-size: 0.9rem;">💳 Formas de Pagamento Aceitas no Local:</p>
+            <span style="background-color: #E2E8F0; color: #1E293B; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; margin: 2px; display: inline-block;">⚡ Pix</span>
+            <span style="background-color: #E2E8F0; color: #1E293B; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; margin: 2px; display: inline-block;">💳 Cartão de Débito</span>
+            <span style="background-color: #E2E8F0; color: #1E293B; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; margin: 2px; display: inline-block;">💳 Cartão de Crédito</span>
+        </div>
+    """, unsafe_allow_html=True)
    # ==========================================
     # PASSO 3: DADOS DO CLIENTE E ENVIO NO WHATSAPP
     # ==========================================
