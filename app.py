@@ -243,3 +243,13 @@ st.markdown(
     "<p style='text-align: center; color: gray; font-size: 0.8rem;'>© 2026 LR Higienização • Todos os direitos reservados</p>", 
     unsafe_allow_html=True
 )
+# --- RODAPÉ DISCRETO COM INSTAGRAM ---
+LINK_INSTAGRAM = "https://www.instagram.com/l.rhigienizacao/"  # Altere para o seu link se necessário
+
+st.markdown("---")
+st.markdown(f"""
+    <div style="text-align: center; margin-top: 15px; color: gray; font-size: 0.8rem;">
+        <p>📸 Siga-nos no Instagram: <a href="{LINK_INSTAGRAM}" target="_blank" style="color: #165B99; text-decoration: none; font-weight: 600;">@lrhigienizacao</a></p>
+        <p>© 2026 LR Higienização • Todos os direitos reservados</p>
+    </div>
+""", unsafe_allow_html=True)
